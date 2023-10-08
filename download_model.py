@@ -26,7 +26,7 @@ if __name__ == '__main__':
     print(f'Downloading pretrained models...')
     for model in pretrained_v2_model_names:
        # print(f'Downloading {model}...')
-        dl_model(PRETRAINED_V1_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
+        dl_model(PRETRAINED_V2_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
 
     hubert_model_names = ['hubert_base.pt',]
     for model in hubert_model_names:
