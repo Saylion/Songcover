@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 hubert_models_dir = BASE_DIR / 'assets' / 'hubert'
 rmvpe_models_dir = BASE_DIR / 'assets' / 'rmvpe'
 pretrained_v1_models_dir = BASE_DIR / 'assets' / 'pretrained'
-pretrained_v2_models_dir = BASE_DUR / 'assets' / 'pretrained_v2'
+pretrained_v2_models_dir = BASE_DIR / 'assets' / 'pretrained_v2'
 
 def dl_model(link, model_name, dir_name):
     with requests.get(f'{link}{model_name}') as r:
