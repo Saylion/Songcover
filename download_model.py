@@ -45,7 +45,7 @@ if __name__ == '__main__':
        # print(f'Downloading {model}...')
         dl_model(PRETRAINED_V2_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
 
-    splitting_models_names = ['HP2-人声vocals+非人声instrumentals.pth', 'HP5-主旋律人声vocals+其他instrumentals.pth', '5_HP-Karaoke-UVR.pth', 'HP2_all_vocals.pth', 'HP3_all_vocals.pth', 'HP5_only_main_vocal.pth', 'VR-DeEchoAggressive.pth', 'VR-DeEchoDeReverb.pth', 'VR-DeEchoNormal.pth'
+    splitting_models_names = ['HP2-人声vocals+非人声instrumentals.pth', 'HP5-主旋律人声vocals+其他instrumentals.pth', '5_HP-Karaoke-UVR.pth', 'HP2_all_vocals.pth', 'HP3_all_vocals.pth', 'HP5_only_main_vocal.pth', 'VR-DeEchoAggressive.pth', 'VR-DeEchoDeReverb.pth', 'VR-DeEchoNormal.pth']
     print(f'Downloading pretrained model for splitting...')                    
     for model in splitting_models_names:
         dl_model(SPLITTING_DOWNLOAD_LINK, model, splitting_models_dir)
