@@ -6,12 +6,14 @@ HUBERT_DOWNLOAD_LINK = 'https://huggingface.co/lj1995/VoiceConversionWebUI/resol
 RMVPE_DOWNLOAD_LINK = 'https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/'
 PRETRAINED_V1_DOWNLOAD_LINK = 'https://huggingface.co/Salmizu/Pretrained/resolve/main/'
 PRETRAINED_V2_DOWNLOAD_LINK = 'https://huggingface.co/Salmizu/Pretrained_v2/resolve/main/'
+SPLITTING_DOWNLOAD_LINK = 'https://huggingface.co/Salmizu/Songcover/resolve/main/', 'https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 hubert_models_dir = BASE_DIR / 'Songcover' /'assets' / 'hubert'
 rmvpe_models_dir = BASE_DIR / 'Songcover' /'assets' / 'rmvpe'
 pretrained_v1_models_dir = BASE_DIR / 'Songcover' / 'assets' / 'pretrained'
 pretrained_v2_models_dir = BASE_DIR / 'Songcover' / 'assets' / 'pretrained_v2'
+splitting_models_dir = BASE_DIR / 'Songcover' / 'assets' / 'uvr5_weights'
 
 def dl_model(link, model_name, dir_name):
     with requests.get(f'{link}{model_name}') as r:
@@ -32,15 +34,20 @@ if __name__ == '__main__':
         print(f'Downloading {model}...')
         dl_model(RMVPE_DOWNLOAD_LINK, model, rmvpe_models_dir)
 
-    pretrained_v1_model_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
+    pretrained_v1_models_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
     print(f'Downloading pretrained models for training...')
-    for model in pretrained_v1_model_names:
+    for model in pretrained_v1_models_names:
        # print(f'Downloading {model}...')
         dl_model(PRETRAINED_V1_DOWNLOAD_LINK, model, pretrained_v1_models_dir)
 
-    pretrained_v2_model_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
-    for model in pretrained_v2_model_names:
+    pretrained_v2_models_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
+    for model in pretrained_v2_models_names:
        # print(f'Downloading {model}...')
         dl_model(PRETRAINED_V2_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
-    
+
+    splitting_models_names = ['HP2-人声vocals+非人声instrumentals.pth', 'HP5-主旋律人声vocals+其他instrumentals.pth', '5_HP-Karaoke-UVR.pth', 'HP2_all_vocals.pth', 'HP3_all_vocals.pth', 'HP5_only_main_vocal.pth', 'VR-DeEchoAggressive.pth', 'VR-DeEchoDeReverb.pth', 'VR-DeEchoNormal.pth'
+    print(f'Downloading pretrained model for splitting...')                    
+    for model in splitting_models_names:
+        dl_model(SPLITTING_DOWNLOAD_LINK, model, splitting_models_dir)
+                              
     print('All models downloaded!')
