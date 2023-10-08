@@ -8,7 +8,7 @@ PRETRAINED_V1_DOWNLOAD_LINK = 'https://huggingface.co/Salmizu/Pretrained/resolve
 PRETRAINED_V2_DOWNLOAD_LINK = 'https://huggingface.co/Salmizu/Pretrained_v2/resolve/main/'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-hubert_models_dir = BASE_DIR / 'Songcover /'assets' / 'hubert'
+hubert_models_dir = BASE_DIR / 'Songcover' /'assets' / 'hubert'
 rmvpe_models_dir = BASE_DIR / 'Songcover' /'assets' / 'rmvpe'
 pretrained_v1_models_dir = BASE_DIR / 'Songcover' / 'assets' / 'pretrained'
 pretrained_v2_models_dir = BASE_DIR / 'Songcover' / 'assets' / 'pretrained_v2'
