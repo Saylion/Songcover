@@ -22,26 +22,25 @@ def dl_model(link, model_name, dir_name):
 
 
 if __name__ == '__main__':
-    pretrained_v2_model_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
-    print(f'Downloading pretrained models...')
-    for model in pretrained_v2_model_names:
-       # print(f'Downloading {model}...')
-        dl_model(PRETRAINED_V2_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
-
-    hubert_model_names = ['hubert_base.pt',]
-    for model in hubert_model_names:
+    hubert_models_names = ['hubert_base.pt',]
+    for model in hubert_models_names:
         print(f'Downloading {model}...')
         dl_model(HUBERT_DOWNLOAD_LINK, model, hubert_models_dir)
 
     rmvpe_models_names = ['rmvpe.pt']
-    for model in rmvpe_model_names:
+    for model in rmvpe_models_names:
         print(f'Downloading {model}...')
         dl_model(RMVPE_DOWNLOAD_LINK, model, rmvpe_models_dir)
 
     pretrained_v1_model_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
-    print(f'Downloading pretrained models...')
+    print(f'Downloading pretrained models for training...')
     for model in pretrained_v1_model_names:
        # print(f'Downloading {model}...')
         dl_model(PRETRAINED_V1_DOWNLOAD_LINK, model, pretrained_v1_models_dir)
+
+    pretrained_v2_model_names = ['D32k.pth', 'D40k.pth', 'D48k.pth', 'G32k.pth', 'G40k.pth', 'G48k.pth', 'f0D32k.pth', 'f0D40k.pth', 'f0D48k.pth', 'f0G32k.pth', 'f0G40k.pth', 'f0G48k.pth']
+    for model in pretrained_v2_model_names:
+       # print(f'Downloading {model}...')
+        dl_model(PRETRAINED_V2_DOWNLOAD_LINK, model, pretrained_v2_models_dir)
     
     print('All models downloaded!')
