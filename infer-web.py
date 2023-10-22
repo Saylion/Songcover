@@ -12,7 +12,6 @@ from subprocess import Popen
 from time import sleep
 import json
 import pathlib
-import localtunnel
 
 import fairseq
 import faiss
@@ -1504,12 +1503,3 @@ with gr.Blocks(title="RVC WebUI") as app:
             server_port=config.listen_port,
             quiet=True,
         )
-
-# Start a tunnel to the local Streamlit app on port 8080
-lt = localtunnel.LocalTunnel(port=7860)
-
-# Get the public URL of the tunnel
-public_url = lt.url
-
-# Print the public URL
-print(public_url)
