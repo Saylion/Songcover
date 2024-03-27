@@ -33,7 +33,7 @@ def load_checkpoint_d(checkpoint_path, combd, sbd, optimizer=None, load_opt=1):
             try:
                 new_state_dict[k] = saved_state_dict[k]
                 if saved_state_dict[k].shape != state_dict[k].shape:
-                    logger.warn(
+                    logger.warning(
                         "shape-%s-mismatch. need: %s, get: %s",
                         k,
                         state_dict[k].shape,
@@ -111,7 +111,7 @@ def load_checkpoint(checkpoint_path, model, optimizer=None, load_opt=1):
         try:
             new_state_dict[k] = saved_state_dict[k]
             if saved_state_dict[k].shape != state_dict[k].shape:
-                logger.warn(
+                logger.warning(
                     "shape-%s-mismatch|need-%s|get-%s",
                     k,
                     state_dict[k].shape,
@@ -312,10 +312,10 @@ def get_hparams(init=True):
         "-te", "--total_epoch", type=int, required=True, help="total_epoch"
     )
     parser.add_argument(
-        "-pg", "--pretrainG", type=str, default="", help="Pretrained Discriminator path"
+        "-pg", "--pretrainG", type=str, default="", help="Pretrained Generator path"
     )
     parser.add_argument(
-        "-pd", "--pretrainD", type=str, default="", help="Pretrained Generator path"
+        "-pd", "--pretrainD", type=str, default="", help="Pretrained Discriminator path"
     )
     parser.add_argument("-g", "--gpus", type=str, default="0", help="split by -")
     parser.add_argument(
@@ -409,7 +409,7 @@ def get_hparams_from_file(config_path):
 def check_git_hash(model_dir):
     source_dir = os.path.dirname(os.path.realpath(__file__))
     if not os.path.exists(os.path.join(source_dir, ".git")):
-        logger.warn(
+        logger.warning(
             "{} is not a git repository, therefore hash value comparison will be ignored.".format(
                 source_dir
             )
@@ -422,7 +422,7 @@ def check_git_hash(model_dir):
     if os.path.exists(path):
         saved_hash = open(path).read()
         if saved_hash != cur_hash:
-            logger.warn(
+            logger.warning(
                 "git hash values are different. {}(saved) != {}(current)".format(
                     saved_hash[:8], cur_hash[:8]
                 )

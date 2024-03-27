@@ -20,7 +20,7 @@ VITS'e dayalı kullanımı kolay bir Ses Dönüşümü çerçevesi.<br><br>
 ------
 [**Değişiklik Geçmişi**](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/docs/Changelog_TR.md) | [**SSS (Sıkça Sorulan Sorular)**](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/wiki/SSS-(Sıkça-Sorulan-Sorular)) 
 
-[**İngilizce**](../en/README.en.md) | [**中文简体**](../../README.md) | [**日本語**](../jp/README.ja.md) | [**한국어**](../kr/README.ko.md) ([**韓國語**](../kr/README.ko.han.md)) | [**Türkçe**](../tr/README.tr.md)
+[**İngilizce**](../en/README.en.md) | [**中文简体**](../../README.md) | [**日本語**](../jp/README.ja.md) | [**한국어**](../kr/README.ko.md) ([**韓國語**](../kr/README.ko.han.md)) | [**Français**](../fr/README.fr.md) | [**Türkçe**](../tr/README.tr.md) | [**Português**](../pt/README.pt.md)
 
 Burada [Demo Video'muzu](https://www.bilibili.com/video/BV1pm4y1z7Gm/) izleyebilirsiniz!
 
@@ -42,6 +42,7 @@ Bu depo aşağıdaki özelliklere sahiptir:
 + UVR5 modelini kullanarak hızla vokalleri ve enstrümanları ayırma.
 + En güçlü Yüksek tiz Ses Çıkarma Algoritması [InterSpeech2023-RMVPE](#Krediler) sessiz ses sorununu önlemek için kullanılır. En iyi sonuçları (önemli ölçüde) sağlar ve Crepe_full'den daha hızlı çalışır, hatta daha düşük kaynak tüketimi sağlar.
 + AMD/Intel grafik kartları hızlandırması desteklenir.
++ Intel ARC grafik kartları hızlandırması IPEX ile desteklenir.
 
 ## Ortamın Hazırlanması
 Aşağıdaki komutlar, Python sürümü 3.8 veya daha yüksek olan bir ortamda çalıştırılmalıdır.
@@ -73,10 +74,11 @@ Ayrıca bunları pip kullanarak da kurabilirsiniz:
 Nvidia grafik kartları için
   pip install -r requirements.txt
 
-
-
 AMD/Intel grafik kartları için：
   pip install -r requirements-dml.txt
+
+Intel ARC grafik kartları için Linux / WSL ile Python 3.10 kullanarak: 
+  pip install -r requirements-ipex.txt
 
 ```
 
@@ -125,6 +127,9 @@ https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.pt
     https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx
 
 ```
+
+Intel ARC grafik kartları kullanıcıları Webui'yi başlatmadan önce `source /opt/intel/oneapi/setvars.sh` komutunu çalıştırmalı.
+
 Daha sonra bu komutu kullanarak Webui'yi başlatabilirsiniz:
 ```bash
 python infer-web.py

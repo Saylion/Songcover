@@ -1,6 +1,7 @@
 """
 格式：直接cid为自带的index位；aid放不下了，通过字典来查，反正就5w个
 """
+
 import os
 import traceback
 import logging
@@ -46,7 +47,7 @@ if big_npy.shape[0] > 2e5:
         )
     except:
         info = traceback.format_exc()
-        logger.warn(info)
+        logger.warning(info)
 
 np.save("tools/infer/big_src_feature_mi.npy", big_npy)
 
