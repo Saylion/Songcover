@@ -34,6 +34,10 @@ from infer.modules.vc.modules import VC
 
 logging.getLogger("numba").setLevel(logging.WARNING)
 
+logging.getLogger("pydub.converter").setLevel(logging.WARNING)
+logging.getLogger("urllib3").setLevel(logging.WARNING)
+logging.getLogger("matplotlib.pyplot").setLevel(logging.WARNING)
+
 logger = logging.getLogger(__name__)
 
 tmp = os.path.join(now_dir, "TEMP")
